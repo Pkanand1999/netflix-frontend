@@ -59,7 +59,7 @@ function Login() {
             </div>
             <div><span style={{color:"grey", fontSize:"1.3rem",}}>New to Netflix?</span>
             <span style={{fontWeight:"600", fontSize:"1rem", cursor:"pointer", textDecoration:"underline"}} onClick={signup}> Sign up now.</span></div>
-          <div style={{marginBottom:"2rem"}}>This page is protected by Google reCAPTCHA to ensure you're not a bot. <span style={{color:"#0071c6"}}>Learn more.</span></div>
+          <div style={{margin:"0.4rem 2.3rem 2.3rem 2.3rem",textAlign:"center"}}>This page is protected by Google reCAPTCHA to ensure you're not a bot. <span style={{color:"#0071c6"}}>Learn more.</span></div>
           </div>
         </div>
       </div>

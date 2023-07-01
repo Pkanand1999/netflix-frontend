@@ -39,10 +39,10 @@ import {
           <div className="body flex column a-center j-center">
             <div className="text flex column">
               <h1>Unlimited movies, TV shows and more.</h1>
-              <h4>Watch anywhere. Cancel anytime.</h4>
-              <h6>
+              <p>Watch anywhere. Cancel anytime.</p>
+              <p>
                 Ready to watch? Enter your email to create or restart membership.
-              </h6>
+              </p>
             </div>
             <div className="form">
               <input
@@ -74,7 +74,7 @@ import {
                 />
               )}
               {!showPassword && (
-                <button className='getStart' onClick={() => setShowPassword(formValues.email.length>9?true:false )}>Get Started ›</button>
+                <button className='getStart' onClick={() => setShowPassword(formValues.email.length>9?true:alert("Please enter a valid email") )}>Get Started ›</button>
               )}
             </div>
             {showPassword && <button onClick={handleSignIn}>Sign Up</button>}
@@ -108,12 +108,12 @@ const Container = styled.div`
           font-size: 3rem;
           font-weight: 900;
         }
-        h4{
+        p{
             font-size: 1.5rem;
             font-weight: 400;
             padding: 0 15rem;
         }
-        h6{
+        p{
             font-size: 1.5rem;
             font-weight: 400;
             padding: 1rem;
@@ -126,9 +126,9 @@ const Container = styled.div`
         width: 36%;
         gap:0.4rem;
         input {
-            background-color:#535454;
+            background-color:transparent;
             color: grey;
-            border: none;
+            border: .5px solid grey;
             padding: 1.2rem;
             font-size: 1.3rem;
             &:focus {
