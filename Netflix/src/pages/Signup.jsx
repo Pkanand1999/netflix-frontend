@@ -107,16 +107,19 @@ const Container = styled.div`
           padding: 0 15rem;
           font-size: 3rem;
           font-weight: 900;
+          color:white;
         }
         p{
             font-size: 1.5rem;
             font-weight: 400;
             padding: 0 15rem;
+            color:white;
         }
         p{
             font-size: 1.5rem;
             font-weight: 400;
             padding: 1rem;
+            color:white;
         }
       }
       .form {

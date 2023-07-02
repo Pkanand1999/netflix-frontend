@@ -12,10 +12,10 @@ export default function Player() {
           <BsArrowLeft onClick={() => navigate(-1)} />
         </div>
         <iframe  
-        src={`https://www.youtube.com/embed/ueMwVGBwqRo`}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture full"
+        src={`https://www.youtube.com/embed/ueMwVGBwqRo?autoplay=1`}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
-        />
+        ></iframe>
       </div>
       
     </Container>
@@ -29,6 +29,7 @@ const Container = styled.div`
     .back {
       position: absolute;
       padding: 2rem;
+      color:white;
       z-index: 1;
       svg {
         font-size: 3rem;
