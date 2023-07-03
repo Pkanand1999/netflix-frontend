@@ -1,7 +1,13 @@
 
 import Navbar from "../components/Navbar"
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import Crousel from "../components/Crousel";
+import { useDispatch ,useSelector} from "react-redux";
+import { hollywoodMovie,bollywoodMovie,cartoonMovie } from "../store/middleware";
+import Slider from "react-slick";
+import Card from "../components/Card";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 let images = [
     "https://e1.pxfuel.com/desktop-wallpaper/528/531/desktop-wallpaper-1-pc-hollywood-movies-hollywood-movie-poster.jpg",
@@ -12,16 +18,66 @@ let images = [
 export default function Movie() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [image, setImage] = useState(images);
+    const dispatch=useDispatch();
+    const data=useSelector((e)=>{
+       return e
+    })
+    console.log(data);
     window.onscroll = () => {
         setIsScrolled(window.pageYOffset === 0 ? false : true);
         return () => (window.onscroll = null);
     };
 
+    useEffect(()=>{
+       hollywoodMovie(dispatch);
+       bollywoodMovie(dispatch);
+       cartoonMovie(dispatch);
+    },[])
+
+    
+    const settings = {
+        className: "center",
+        centerMode: true,
+        infinite: true,
+        centerPadding: "60px",
+        slidesToShow: 6,
+        speed: 500
+      };
+
     return (
         <div style={{ background: "black", width: "100vw", color: "white" }}>
             <Navbar isScrolled={isScrolled} />
             <Crousel image={image} />
+            <h4 style={{marginTop:"3rem"}}>Hollywood Movies</h4>
+            <div style={{display:"flex",direction:"row"}} >
+            {
+                data.hollywood.map((list,i)=>{
+                   return <img src={list.url} style={{border:"2px solid white",width:"15%",margin:"0.5rem"}} key={i}/>
+                })
+            }
+                    </div>
+            <h4 style={{marginTop:"3rem"}}>Bollywood Movies</h4>
+            
+            <Slider {...settings} >
+            {
+                data.bollywood.map((list,i)=>{
+                   return <div key={i}>
+                   <img src={list.url}  />
+                   </div>
+                })
+            }
+            </Slider>
+            <h4 style={{marginTop:"3rem"}}>Cartoon Movies</h4>
+            <Slider {...settings}style={{paddingBottom:"5rem"}}>
+            {
+                data.cartoon.map((list,i)=>{
+                    return  <Card list={list} key={i}/>
+                })
+            }
+            </Slider>
 
         </div>
     )
 }
+
+
