@@ -53,6 +53,12 @@ const reducer=(state=initialState,action) =>{
                 englishSeries: [...action.payload],
             }
         }
+        case"USER_ID":{
+            return{
+                ...state,
+                userId: action.payload,
+            }
+        }
         default:
             return state;
     }

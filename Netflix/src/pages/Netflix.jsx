@@ -10,9 +10,9 @@ import {useState} from 'react'
 
 export default function Netflix() {
   const navigate=useNavigate();
-  // onAuthStateChanged(firebaseAuth, (currentUser) => {
-  //   if (!currentUser) navigate("/login");
-  // });
+  onAuthStateChanged(firebaseAuth, (currentUser) => {
+    if (!currentUser) navigate("/login");
+  });
   const [isScrolled, setIsScrolled] = useState(false);
     window.onscroll = () => {
         setIsScrolled(window.pageYOffset === 0 ? false : true);

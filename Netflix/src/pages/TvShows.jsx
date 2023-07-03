@@ -7,6 +7,9 @@ import Slider from "react-slick";
 import Card from "../components/Card";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import { onAuthStateChanged} from "firebase/auth";
+import { firebaseAuth } from "../utils/firebase-config";
+import { useNavigate } from "react-router-dom";
 
 let images=[
     "https://e1.pxfuel.com/desktop-wallpaper/132/405/desktop-wallpaper-money-heist-season-5-volume-2-review-fans-cry-happy-tears-after-the-last-showdown-on-netflix-s-hit-spanish-drama.jpg",
@@ -16,11 +19,15 @@ let images=[
 
 export default function TvShows() {
     const [isScrolled, setIsScrolled] = useState(false);
-    const [image, setImage] = useState(images);
+    const [image, setImage] = useState(images);  
     const dispatch=useDispatch();
+    const navigate=useNavigate();
     const data=useSelector((e)=>{
        return e
     })
+    onAuthStateChanged(firebaseAuth, (currentUser) => {
+      if (!currentUser) navigate("/login");
+    });
     window.onscroll = () => {
         setIsScrolled(window.pageYOffset === 0 ? false : true);
         return () => (window.onscroll = null);

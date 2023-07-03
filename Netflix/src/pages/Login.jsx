@@ -7,15 +7,19 @@ import Background from "../components/Background";
 import Header from "../components/Header";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { firebaseAuth } from "../utils/firebase-config";
+import { userid } from '../store/middleware';
+import { useDispatch } from 'react-redux';
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+const dispatch=useDispatch();
 
   const handleLogin = async () => {
     try {
-      await signInWithEmailAndPassword(firebaseAuth, email, password);
+      let user=await signInWithEmailAndPassword(firebaseAuth, email, password);
+      userid(user._tokenResponse.localId,dispatch)
     } catch (error) {
       console.log(error.code);
       alert(error);
@@ -59,7 +63,7 @@ function Login() {
             </div>
             <div><span style={{color:"grey", fontSize:"1.3rem",}}>New to Netflix?</span>
             <span style={{fontWeight:"600", fontSize:"1rem", cursor:"pointer", textDecoration:"underline"}} onClick={signup}> Sign up now.</span></div>
-          <div style={{margin:"0.4rem 2.3rem 2.3rem 2.3rem",textAlign:"center"}}>This page is protected by Google reCAPTCHA to ensure you're not a bot. <span style={{color:"#0071c6"}}>Learn more.</span></div>
+          <div style={{margin:"0.4rem 2.3rem 2.3rem 2.3rem",textAlign:"center"}}>This page is protected by Google reCAPTCHA to ensure you are not a bot. <span style={{color:"#0071c6"}}>Learn more.</span></div>
           </div>
         </div>
       </div>
@@ -90,7 +94,8 @@ const Container = styled.div`
           gap: 2rem;
           input {
             padding: 0.5rem 1rem;
-            width: 15rem;
+            width: 20rem;
+            color: black;
           }
           button {
             padding: 0.5rem 1rem;

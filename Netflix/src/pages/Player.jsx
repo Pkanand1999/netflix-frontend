@@ -2,8 +2,13 @@
 import styled from "styled-components";
 import { BsArrowLeft } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import {useSelector } from "react-redux";
+
 export default function Player() {
   const navigate = useNavigate();
+ const id=useSelector((data)=>{
+  return data.videoId;
+ })
 
   return (
     <Container>
@@ -12,7 +17,7 @@ export default function Player() {
           <BsArrowLeft onClick={() => navigate(-1)} />
         </div>
         <iframe  
-        src={`https://www.youtube.com/embed/ueMwVGBwqRo?autoplay=1`}
+        src={`https://www.youtube.com/embed/${id}?autoplay=1`}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
         ></iframe>

@@ -8,6 +8,9 @@ import Slider from "react-slick";
 import Card from "../components/Card";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import { onAuthStateChanged} from "firebase/auth";
+import { firebaseAuth } from "../utils/firebase-config";
+import { useNavigate } from "react-router-dom";
 
 let images = [
     "https://e1.pxfuel.com/desktop-wallpaper/528/531/desktop-wallpaper-1-pc-hollywood-movies-hollywood-movie-poster.jpg",
@@ -19,9 +22,13 @@ export default function Movie() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [image, setImage] = useState(images);
     const dispatch=useDispatch();
+    const navigate=useNavigate();
     const data=useSelector((e)=>{
        return e
     })
+    onAuthStateChanged(firebaseAuth, (currentUser) => {
+        if (!currentUser) navigate("/login");
+      });
     console.log(data);
     window.onscroll = () => {
         setIsScrolled(window.pageYOffset === 0 ? false : true);

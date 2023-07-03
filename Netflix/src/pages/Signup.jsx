@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import Background from '../components/Background';
 import Header from '../components/Header';
+import { userid } from '../store/middleware';
+import { useDispatch } from 'react-redux';
 
 import {
     createUserWithEmailAndPassword,
@@ -11,6 +13,7 @@ import {
   import { firebaseAuth } from "../utils/firebase-config";
   export default function Signup() {
     const [showPassword, setShowPassword] = useState(false);
+    const dispatch=useDispatch();
     const [formValues, setFormValues] = useState({
       email: "",
       password: "",
@@ -20,16 +23,17 @@ import {
     const handleSignIn = async () => {
       try {
         const { email, password } = formValues;
-        await createUserWithEmailAndPassword(firebaseAuth, email, password);
+       let user= await createUserWithEmailAndPassword(firebaseAuth, email, password);
+       userid(user._tokenResponse.localId,dispatch)
       } catch (error) {
         console.log(error);
         alert(error)
       }
     };
   
-    onAuthStateChanged(firebaseAuth, (currentUser) => {
-      if (currentUser) navigate("/");
-    });
+    // onAuthStateChanged(firebaseAuth, (currentUser) => {
+    //   if (currentUser) navigate("/");
+    // });
   
     return (
       <Container showPassword={showPassword}>

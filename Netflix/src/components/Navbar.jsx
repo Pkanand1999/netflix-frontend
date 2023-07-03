@@ -11,6 +11,8 @@ Input,
 import { Search2Icon } from '@chakra-ui/icons'
 import {useState} from "react"
 import{Link} from 'react-router-dom'
+import { firebaseAuth } from "../utils/firebase-config";
+import { signOut } from "firebase/auth";
 
 
 export default function Navbar({isScrolled}) {
@@ -29,7 +31,7 @@ const [search, setSearch] =useState(false);
       <Box display="flex" alignItems="center" justifyContent="space-between" gap="2rem" >
         <Box display="flex" alignItems="center" justifyContent="space-between" gap="1rem">
         <Search2Icon  color="white"  onClick={()=>setSearch(search? false:true)} />
-        {search && <Input placeholder="Search" type="text" border="none" color="white"  
+        {search && <Input placeholder="Search" type="text" border="2px solid white" color="white"  
         focusBorderColor='red.400' 
         borderRadius="20px" 
         />}
@@ -50,7 +52,7 @@ const [search, setSearch] =useState(false);
             <Image src="https://ih1.redbubble.net/image.618427277.3222/flat,800x800,075,f.u2.jpg" />
           </MenuButton >
           <MenuList width="1rem" textAlign="center">
-            <MenuItem color='black'>Log Out</MenuItem>
+            <MenuItem color='black' onClick={() => signOut(firebaseAuth)}>Log Out</MenuItem>
           </MenuList>
         </Menu>
         </Box>

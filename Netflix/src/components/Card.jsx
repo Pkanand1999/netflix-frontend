@@ -2,9 +2,12 @@ import {useState} from 'react'
 import {AddIcon,ArrowForwardIcon} from '@chakra-ui/icons'
 import { playthis } from '../store/middleware';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Card({list}) {
 const [hover,setHover]=useState(false);
+const navigate=useNavigate();
 const dispatch=useDispatch();
 const handleMouseOver = () => {
     setHover(true);
@@ -15,6 +18,7 @@ const handleMouseOver = () => {
   };
   function playMovie(movieId){
 playthis(movieId,dispatch)
+navigate("/player")
   }
 
     return (

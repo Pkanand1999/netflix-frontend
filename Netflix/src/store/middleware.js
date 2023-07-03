@@ -106,3 +106,10 @@ export function playthis(id,dispatch){
         payload:id,
     })
 }
+
+export function userid(id,dispatch){
+        dispatch({
+            type:"USER_ID",
+            payload:id,
+        })
+}
