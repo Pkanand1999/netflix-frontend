@@ -43,3 +43,16 @@ body {
   .a-center {
     align-items: center;
   }
+  .slick-dots{
+    background-color: black !important;
+    color: white !important;
+  }
+  .slick-dots li button {
+    background-color: #424243 !important;
+    border-radius: 20px !important;
+  }
+
+ 
+.slick-slide {
+  padding: 0 8px;
+}

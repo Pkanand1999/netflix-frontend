@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 export function hollywoodMovie(dispatch){
-    axios.get(`http://localhost:4002/netflix/v2/hollywood`)
+    axios.get(`http://localhost:8080/netflix/v2/hollywood`)
     .then((res)=>{
 return res;
     })
@@ -19,7 +19,7 @@ return res;
     
 }
 export function bollywoodMovie(dispatch){
-    axios.get(`http://localhost:4002/netflix/v2/bollywood`)
+    axios.get(`http://localhost:8080/netflix/v2/bollywood`)
     .then((res)=>{
 return res;
     })
@@ -36,7 +36,7 @@ return res;
 
 
 export function cartoonMovie(dispatch){
-    axios.get(`http://localhost:4002/netflix/v2/cartoon`)
+    axios.get(`http://localhost:8080/netflix/v2/cartoon`)
     .then((res)=>{
 return res;
     })
@@ -50,12 +50,59 @@ return res;
         console.log(res);
     })
 }
-// export function indianWeb(dispatch){
 
-// }
-// export function tvShows(dispatch){
+export function indianWeb(dispatch){
+    axios.get(`http://localhost:8080/netflix/v2/indianWebseries`)
+    .then((res)=>{
+return res;
+    })
+    .then((res)=>{
+        dispatch({
+            type:"INDIAN_WEB_SERIES",
+            payload: res.data,
+        })
+    })
+    .catch((res)=>{
+        console.log(res);
+    })
+}
 
-// }
-// export function EnglishSeries(dispatch){
+export function tvShows(dispatch){
+    axios.get(`http://localhost:8080/netflix/v2/tvshow`)
+    .then((res)=>{
+return res;
+    })
+    .then((res)=>{
+        dispatch({
+            type:"TV_SHOWS",
+            payload: res.data,
+        })
+    })
+    .catch((res)=>{
+        console.log(res);
+    })
+}
 
-// }
+
+export function EnglishSeries(dispatch){
+    axios.get(`http://localhost:8080/netflix/v2/englishSeries`)
+    .then((res)=>{
+return res;
+    })
+    .then((res)=>{
+        dispatch({
+            type:"ENGLISH_WEB_SERIES",
+            payload: res.data,
+        })
+    })
+    .catch((res)=>{
+        console.log(res);
+    })
+}
+
+export function playthis(id,dispatch){
+    dispatch({
+        type:"VIDEO_ID",
+        payload:id,
+    })
+}

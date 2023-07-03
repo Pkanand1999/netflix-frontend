@@ -37,9 +37,10 @@ export default function Movie() {
     
     const settings = {
         className: "center",
+        dots: true,
         centerMode: true,
         infinite: true,
-        centerPadding: "60px",
+        centerPadding: "0px",
         slidesToShow: 6,
         speed: 500
       };
@@ -49,29 +50,27 @@ export default function Movie() {
             <Navbar isScrolled={isScrolled} />
             <Crousel image={image} />
             <h4 style={{marginTop:"3rem"}}>Hollywood Movies</h4>
-            <div style={{display:"flex",direction:"row"}} >
+            <Slider {...settings} >
             {
                 data.hollywood.map((list,i)=>{
-                   return <img src={list.url} style={{border:"2px solid white",width:"15%",margin:"0.5rem"}} key={i}/>
+                   return  <Card list={list} key={i} style={{border:"2px solid white"}}/>
                 })
             }
-                    </div>
+                   </Slider>
             <h4 style={{marginTop:"3rem"}}>Bollywood Movies</h4>
             
             <Slider {...settings} >
             {
                 data.bollywood.map((list,i)=>{
-                   return <div key={i}>
-                   <img src={list.url}  />
-                   </div>
+                   return <Card list={list} key={i} style={{border:"2px solid white"}}/>
                 })
             }
             </Slider>
             <h4 style={{marginTop:"3rem"}}>Cartoon Movies</h4>
-            <Slider {...settings}style={{paddingBottom:"5rem"}}>
+            <Slider {...settings}>
             {
                 data.cartoon.map((list,i)=>{
-                    return  <Card list={list} key={i}/>
+                    return  <Card list={list} key={i} style={{border:"2px solid white"}}/>
                 })
             }
             </Slider>

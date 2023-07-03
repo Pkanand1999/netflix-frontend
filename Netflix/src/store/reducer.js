@@ -11,10 +11,10 @@ let initialState ={
 
 const reducer=(state=initialState,action) =>{
     switch(action.type){
-        case"SET_VIDEOID":{
+        case"VIDEO_ID":{
             return{
                 ...state,
-                videoId: action.payload.videoId,
+                videoId: action.payload,
             }
         }
         case"HOLLYWOOD_MOVIES":{
@@ -33,6 +33,24 @@ const reducer=(state=initialState,action) =>{
             return{
                 ...state,
                 cartoon: [...action.payload],
+            }
+        }
+        case"INDIAN_WEB_SERIES":{
+            return{
+                ...state,
+                indianWebSeries: [...action.payload],
+            }
+        }
+        case"TV_SHOWS":{
+            return{
+                ...state,
+                tvShow: [...action.payload],
+            }
+        }
+        case"ENGLISH_WEB_SERIES":{
+            return{
+                ...state,
+                englishSeries: [...action.payload],
             }
         }
         default:
