@@ -19,6 +19,7 @@ const dispatch=useDispatch();
   const handleLogin = async () => {
     try {
       let user=await signInWithEmailAndPassword(firebaseAuth, email, password);
+      localStorage.setItem('userId',user._tokenResponse.localId)
       userid(user._tokenResponse.localId,dispatch)
     } catch (error) {
       console.log(error.code);

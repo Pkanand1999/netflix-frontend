@@ -24,6 +24,7 @@ import {
       try {
         const { email, password } = formValues;
        let user= await createUserWithEmailAndPassword(firebaseAuth, email, password);
+       localStorage.setItem('userId',user._tokenResponse.localId)
        userid(user._tokenResponse.localId,dispatch)
       } catch (error) {
         console.log(error);
@@ -31,9 +32,9 @@ import {
       }
     };
   
-    // onAuthStateChanged(firebaseAuth, (currentUser) => {
-    //   if (currentUser) navigate("/");
-    // });
+    onAuthStateChanged(firebaseAuth, (currentUser) => {
+      if (currentUser) navigate("/");
+    });
   
     return (
       <Container showPassword={showPassword}>

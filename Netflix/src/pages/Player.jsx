@@ -18,7 +18,7 @@ export default function Player() {
         </div>
         <iframe  
         src={`https://www.youtube.com/embed/${id}?autoplay=1`}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allow="fullscreen;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
         ></iframe>
       </div>

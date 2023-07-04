@@ -1,12 +1,13 @@
 let initialState ={
     videoId: "ueMwVGBwqRo",
-    userId:"",
+    userId: localStorage.getItem("userId") || "",
     hollywood:[],
     bollywood:[],
     cartoon:[],
     indianWebSeries:[],
     tvShow:[],
     englishSeries:[],
+    wishlist:[],
 }
 
 const reducer=(state=initialState,action) =>{
@@ -57,6 +58,18 @@ const reducer=(state=initialState,action) =>{
             return{
                 ...state,
                 userId: action.payload,
+            }
+        }
+        case"WATCH_WISHLIST":{
+            return{
+                ...state,
+                wishlist: [...action.payload],
+            }
+        }
+        case"UPDATE_WISHLIST":{
+            return{
+                ...state,
+                wishlist: [...action.payload],
             }
         }
         default:

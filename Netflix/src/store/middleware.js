@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 export function hollywoodMovie(dispatch){
-    axios.get(`http://localhost:8080/netflix/v2/hollywood`)
+    axios.get(`http://localhost:8080/api/netflix/v2/hollywood`)
     .then((res)=>{
 return res;
     })
@@ -18,8 +18,9 @@ return res;
     })
     
 }
+
 export function bollywoodMovie(dispatch){
-    axios.get(`http://localhost:8080/netflix/v2/bollywood`)
+    axios.get(`http://localhost:8080/api/netflix/v2/bollywood`)
     .then((res)=>{
 return res;
     })
@@ -36,7 +37,7 @@ return res;
 
 
 export function cartoonMovie(dispatch){
-    axios.get(`http://localhost:8080/netflix/v2/cartoon`)
+    axios.get(`http://localhost:8080/api/netflix/v2/cartoon`)
     .then((res)=>{
 return res;
     })
@@ -52,7 +53,7 @@ return res;
 }
 
 export function indianWeb(dispatch){
-    axios.get(`http://localhost:8080/netflix/v2/indianWebseries`)
+    axios.get(`http://localhost:8080/api/netflix/v2/indianWebseries`)
     .then((res)=>{
 return res;
     })
@@ -68,7 +69,7 @@ return res;
 }
 
 export function tvShows(dispatch){
-    axios.get(`http://localhost:8080/netflix/v2/tvshow`)
+    axios.get(`http://localhost:8080/api/netflix/v2/tvshow`)
     .then((res)=>{
 return res;
     })
@@ -85,7 +86,7 @@ return res;
 
 
 export function EnglishSeries(dispatch){
-    axios.get(`http://localhost:8080/netflix/v2/englishSeries`)
+    axios.get(`http://localhost:8080/api/netflix/v2/englishSeries`)
     .then((res)=>{
 return res;
     })
@@ -112,4 +113,37 @@ export function userid(id,dispatch){
             type:"USER_ID",
             payload:id,
         })
+}
+
+export function checkwishlist(item,dispatch){
+    axios.post(`http://localhost:8080/api/netflix/v2/mywishlist`,{...item})
+    .then((res)=>{
+return res;
+    })
+    .then((res)=>{
+        dispatch({
+            type:"WATCH_WISHLIST",
+            payload: res.data,
+        })
+    })
+    .catch((res)=>{
+        console.log(res);
+    })
+}
+
+export function getlist(item,dispatch){
+    axios.post(`http://localhost:8080/api/netflix/v2/getlist`,{...item})
+    .then((res)=>{
+        console.log(res)
+return res;
+    })
+    .then((res)=>{
+        dispatch({
+            type:"UPDATE_WISHLIST",
+            payload: res.data,
+        })
+    })
+    .catch((res)=>{
+        console.log(res);
+    })
 }

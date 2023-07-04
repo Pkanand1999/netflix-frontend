@@ -12,12 +12,14 @@ import { firebaseAuth } from "../utils/firebase-config";
 import { useNavigate } from "react-router-dom";
 
 let images=[
-    "https://e1.pxfuel.com/desktop-wallpaper/132/405/desktop-wallpaper-money-heist-season-5-volume-2-review-fans-cry-happy-tears-after-the-last-showdown-on-netflix-s-hit-spanish-drama.jpg",
     "https://wallpapers.com/images/high/amazing-poster-of-lost-in-space-6u6gyqhbnu6su1tn.webp",
-    "https://www.91-cdn.com/hub/wp-content/uploads/2022/09/jamtara2.jpg"
+    "https://c4.wallpaperflare.com/wallpaper/37/1008/892/the-vampire-diaries-tv-series-2009-2017-poster-fantasy-all-wallpaper-preview.jpg",
+    "https://cdnb.artstation.com/p/assets/images/images/026/693/455/large/nakul-anand-asur-poster-nakulanand.jpg?1589463625",
+    "https://c4.wallpaperflare.com/wallpaper/713/48/9/the-witcher-the-witcher-tv-series-netflix-netflix-tv-series-poster-hd-wallpaper-preview.jpg"
 ]
 
 export default function TvShows() {
+
     const [isScrolled, setIsScrolled] = useState(false);
     const [image, setImage] = useState(images);  
     const dispatch=useDispatch();
@@ -54,7 +56,7 @@ export default function TvShows() {
     <div style={{background:"black", width:"100vw",color:"white"}}>
         <Navbar isScrolled={isScrolled}/>
         <Crousel image={image} />
-        <h4 style={{marginTop:"3rem"}}>Hollywood Movies</h4>
+        <h4 style={{marginTop:"3rem",marginLeft:"20px"}}>WebSeries English</h4>
             <Slider {...settings} >
             {
                 data.englishSeries.map((list,i)=>{
@@ -62,7 +64,7 @@ export default function TvShows() {
                 })
             }
                    </Slider>
-            <h4 style={{marginTop:"3rem"}}>Bollywood Movies</h4>
+            <h4 style={{marginTop:"3rem",marginLeft:"20px"}}>WebSeries Hindi</h4>
             
             <Slider {...settings} >
             {
@@ -71,7 +73,7 @@ export default function TvShows() {
                 })
             }
             </Slider>
-            <h4 style={{marginTop:"3rem"}}>Cartoon Movies</h4>
+            <h4 style={{marginTop:"3rem",marginLeft:"20px"}}>Tv Shows</h4>
             <Slider {...settings}>
             {
                 data.tvShow.map((list,i)=>{

@@ -56,7 +56,7 @@ export default function Movie() {
         <div style={{ background: "black", width: "100vw", color: "white" }}>
             <Navbar isScrolled={isScrolled} />
             <Crousel image={image} />
-            <h4 style={{marginTop:"3rem"}}>Hollywood Movies</h4>
+            <h4 style={{marginTop:"3rem",marginLeft:"20px"}}>Hollywood Movies</h4>
             <Slider {...settings} >
             {
                 data.hollywood.map((list,i)=>{
@@ -64,7 +64,7 @@ export default function Movie() {
                 })
             }
                    </Slider>
-            <h4 style={{marginTop:"3rem"}}>Bollywood Movies</h4>
+            <h4 style={{marginTop:"3rem",marginLeft:"20px"}}>Bollywood Movies</h4>
             
             <Slider {...settings} >
             {
@@ -73,7 +73,7 @@ export default function Movie() {
                 })
             }
             </Slider>
-            <h4 style={{marginTop:"3rem"}}>Cartoon Movies</h4>
+            <h4 style={{marginTop:"3rem",marginLeft:"20px"}}>Cartoon Movies</h4>
             <Slider {...settings}>
             {
                 data.cartoon.map((list,i)=>{
