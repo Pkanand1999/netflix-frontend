@@ -6,11 +6,14 @@ import { ChakraProvider } from '@chakra-ui/react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { store } from './store/store.js';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
-    <ChakraProvider>
-    <App />
-    </ChakraProvider>
+        <BrowserRouter>
+            <ChakraProvider>
+                <App />
+            </ChakraProvider>
+        </BrowserRouter>
     </Provider>
 )

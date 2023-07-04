@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Netflix from './pages/Netflix';
@@ -8,24 +8,23 @@ import TvShows from './pages/TvShows';
 import MyList from './pages/MyList';
 import Error from './pages/Error';
 import Payment from './pages/Payment';
+import Private from './routes/Private';
 
 function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/*" element={<Error />} />
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/signup" element={<Signup />} />
-          <Route exact path="/player" element={<Player />} />
-          <Route exact path="/movie" element={<Movie />} />
-          <Route exact path="/tvshows" element={<TvShows />} />
-          <Route exact path="/mylist" element={<MyList />} />
-          <Route exact path="/payment" element={<Payment />} />
-          <Route exact path="/" element={<Netflix />} />
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/*" element={<Error />} />
+        <Route  path="/login" element={<Login />} />
+        <Route  path="/signup" element={<Signup />} />
+        <Route  path="/payment" element={<Payment />} />
+        <Route  path="/player" element={<Private><Player /></Private>} />
+        <Route  path="/movie" element={<Private><Movie /></Private>} />
+        <Route  path="/tvshows" element={<Private><TvShows /></Private>} />
+        <Route  path="/mylist" element={<Private><MyList /></Private>} />
+        <Route  path="/" element={<Netflix />} />
+      </Routes>
 
     </>
   )
