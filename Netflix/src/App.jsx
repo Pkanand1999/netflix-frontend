@@ -7,6 +7,7 @@ import Movie from './pages/Movie';
 import TvShows from './pages/TvShows';
 import MyList from './pages/MyList';
 import Error from './pages/Error';
+import Payment from './pages/Payment';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/movie" element={<Movie />} />
           <Route exact path="/tvshows" element={<TvShows />} />
           <Route exact path="/mylist" element={<MyList />} />
+          <Route exact path="/payment" element={<Payment />} />
           <Route exact path="/" element={<Netflix />} />
         </Routes>
       </BrowserRouter>
