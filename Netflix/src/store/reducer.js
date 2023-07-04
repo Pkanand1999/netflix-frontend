@@ -8,6 +8,18 @@ let initialState ={
     tvShow:[],
     englishSeries:[],
     wishlist:[],
+    plan:[
+        {heading:"Monthly price",basic:"₹ 159",standard:"₹ 199",premium:"₹ 249"},
+        {heading:"HD available",basic:"×",standard:"✓",premium:"✓"},
+        {heading:"Ultra HD available",basic:"×",standard:"×",premium:"✓"},
+        {heading:"Screen you can watch on at same time",basic:"1",standard:"2",premium:"4"},
+        {heading:"Watch on your Laptop, TV, Phone and Tablet",basic:"✓",standard:"✓",premium:"✓"},
+        {heading:"Unlimited movies and TV shows",basic:"✓",standard:"✓",premium:"✓"},
+        {heading:"Cancel any time",basic:"✓",standard:"✓",premium:"✓"},
+        {heading:"First month free",basic:"✓",standard:"✓",premium:"✓"}
+    ],
+    price:0,
+
 }
 
 const reducer=(state=initialState,action) =>{
@@ -70,6 +82,12 @@ const reducer=(state=initialState,action) =>{
             return{
                 ...state,
                 wishlist: [...action.payload],
+            }
+        }
+        case"PRICE":{
+            return{
+                ...state,
+                price:action.payload,
             }
         }
         default:
