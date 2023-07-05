@@ -7,7 +7,7 @@ import Background from "../components/Background";
 import Header from "../components/Header";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { firebaseAuth } from "../utils/firebase-config";
-import { userid } from '../store/middleware';
+import { userid,Subscribe } from '../store/middleware';
 import { useDispatch } from 'react-redux';
 
 function Login() {
@@ -21,6 +21,8 @@ const dispatch=useDispatch();
       let user=await signInWithEmailAndPassword(firebaseAuth, email, password);
       localStorage.setItem('userId',user._tokenResponse.localId)
       userid(user._tokenResponse.localId,dispatch)
+      let email=localStorage.getItem('email')
+      Subscribe({email:email,subscription:"199"},dispatch)
     } catch (error) {
       console.log(error.code);
       alert(error);

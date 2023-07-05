@@ -32,9 +32,12 @@ export default function Payment() {
     }
     function getpin(e){
         if(e=="1234"){
-            setOtp(false);
-            setPin(true);
-            console.log(e)
+            setTimeout(()=>{
+
+                setOtp(false);
+                setPin(true);
+                console.log(e)
+            },1500)
         }
     }
 

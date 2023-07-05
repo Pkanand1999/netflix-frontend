@@ -5,6 +5,7 @@ const Private= ({ children }) => {
   let authToken=useSelector((e)=>{
     return e.subscription
   });
+  console.log(authToken);
   if (!authToken) {
     return <Navigate to="/payment" />;
   }

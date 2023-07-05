@@ -91,6 +91,12 @@ const reducer=(state=initialState,action) =>{
                 price:action.payload,
             }
         }
+        case"SUBSCRIPTION":{
+            return{
+                ...state,
+                subscription:action.payload.subscription,
+            }
+        }
         default:
             return state;
     }

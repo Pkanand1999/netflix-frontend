@@ -11,7 +11,7 @@ export default function DonePayment() {
     setTimeout(()=>{
         navigate("/")
         let email=localStorage.getItem("email");
-        Subscribe({email:email,subscription:`${data}/monthiy`},dispatch)
+        Subscribe({email:email,subscription:`₹ ${data}/monthiy`},dispatch)
     },6000)
   return (
     <div style={{width:"100vw",height:"100vh",display:"flex",alignItems:"center",justifyContent:"center"}}>
