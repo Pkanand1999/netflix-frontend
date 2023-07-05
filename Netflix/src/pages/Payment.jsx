@@ -8,6 +8,7 @@ import { firebaseAuth } from "../utils/firebase-config";
 import { useNavigate } from "react-router-dom";
 import Otp from "../components/Otp";
 import DonePayment from '../components/DonePayment'
+
 export default function Payment() {
     const [plan, setPlan] = useState(true);
     const [card, setCard] = useState(false);
@@ -33,13 +34,14 @@ export default function Payment() {
     function getpin(e){
         if(e=="1234"){
             setTimeout(()=>{
-
                 setOtp(false);
                 setPin(true);
                 console.log(e)
             },1500)
         }
     }
+    
+    
 
     return (
         <div>

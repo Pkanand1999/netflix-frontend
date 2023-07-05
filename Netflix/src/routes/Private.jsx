@@ -1,14 +1,13 @@
 import { Navigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 const Private= ({ children }) => {
-  let authToken=useSelector((e)=>{
-    return e.subscription[0].subscription
-  });
+  let authToken=localStorage.getItem('subscribe');
+  
   if (!authToken) {
     return <Navigate to="/payment" />;
   }
-    return children;
+    return children
 };
 
 export default Private;

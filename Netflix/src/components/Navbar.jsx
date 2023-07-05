@@ -9,20 +9,44 @@ MenuItem,
 Input,
 } from '@chakra-ui/react'
 import { Search2Icon } from '@chakra-ui/icons'
-import {useState} from "react"
+import {useState,useEffect} from "react"
 import{Link} from 'react-router-dom'
 import { firebaseAuth } from "../utils/firebase-config";
 import { signOut } from "firebase/auth";
+// import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { SubscribePlan } from '../store/middleware';
 
 
 export default function Navbar({isScrolled}) {
 const [search, setSearch] =useState(false);
+// const [premium, setPremium] =useState(false);
+// const navigate=useNavigate();
+const dispatch=useDispatch();
 function signOff(){
   signOut(firebaseAuth)
   localStorage.removeItem('userId')
-  
+  localStorage.removeItem('email')
+  localStorage.removeItem('subscribe')
 }
+// const premium=useSelector((e)=>{
+//   return e.subscription[0].subscription
+// })
+// setTimeout(()=>{
+//   let pre = localStorage.getItem('subscribe');
+// setPremium(pre);
 
+// },500)
+
+// function buyNow(){
+//   navigate('/payment')
+// }
+
+let mail=localStorage.getItem('email')
+useEffect(()=>{
+SubscribePlan({email:mail,subscription:"sdfgsag"},dispatch)
+},[mail])
 
   return (
     <Box display="flex" background={isScrolled ? "black" : "transparent"} position="fixed" width="100vw" zIndex="2" top="0" left="0" padding="1rem 2rem" alignItems="center" justifyContent="space-between">
@@ -57,6 +81,7 @@ function signOff(){
             <Image src="https://ih1.redbubble.net/image.618427277.3222/flat,800x800,075,f.u2.jpg" />
           </MenuButton >
           <MenuList width="1rem" textAlign="center">
+            {/* {!premium && <MenuItem color='black' onClick={buyNow }>Subscribe</MenuItem>} */}
             <MenuItem color='black' onClick={signOff }>Log Out</MenuItem>
           </MenuList>
         </Menu>

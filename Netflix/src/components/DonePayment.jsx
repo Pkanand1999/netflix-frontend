@@ -12,6 +12,7 @@ export default function DonePayment() {
         navigate("/")
         let email=localStorage.getItem("email");
         Subscribe({email:email,subscription:`₹ ${data}/monthiy`},dispatch)
+        localStorage.setItem("subscribe", true)
     },6000)
   return (
     <div style={{width:"100vw",height:"100vh",display:"flex",alignItems:"center",justifyContent:"center"}}>

@@ -7,7 +7,7 @@ import Background from "../components/Background";
 import Header from "../components/Header";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { firebaseAuth } from "../utils/firebase-config";
-import { userid,Subscribe } from '../store/middleware';
+import { userid } from '../store/middleware';
 import { useDispatch } from 'react-redux';
 
 function Login() {
@@ -22,7 +22,7 @@ const dispatch=useDispatch();
       localStorage.setItem('userId',user._tokenResponse.localId)
       userid(user._tokenResponse.localId,dispatch)
       localStorage.setItem('email',email)
-      Subscribe({email:email,subscription:"xxe 456/mjyt"},dispatch)
+      // Subscribe({email:email,subscription:"xxe 456/mjyt"},dispatch)
     } catch (error) {
       console.log(error.code);
       alert(error);

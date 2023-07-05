@@ -168,3 +168,25 @@ return res;
         console.log(res);
     })
 }
+
+
+export function SubscribePlan(item,dispatch){
+    axios.post(`http://localhost:8080/api/netflix/v2/plan`,{...item})
+    .then((res)=>{
+        console.log(res)
+        console.log(res)
+return res;
+    })
+    .then((res)=>{
+        if(res.data!='' || res.data!=null){
+localStorage.setItem('subscribe',true)
+            dispatch({
+                type:"SUBSCRIPTION",
+                payload: res.data,
+            })
+        }
+    })
+    .catch((res)=>{
+        console.log(res);
+    })
+}
