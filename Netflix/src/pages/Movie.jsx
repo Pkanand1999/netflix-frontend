@@ -29,7 +29,7 @@ export default function Movie() {
     onAuthStateChanged(firebaseAuth, (currentUser) => {
         if (!currentUser) navigate("/login");
       });
-    console.log(data);
+    // console.log(data);
     window.onscroll = () => {
         setIsScrolled(window.pageYOffset === 0 ? false : true);
         return () => (window.onscroll = null);

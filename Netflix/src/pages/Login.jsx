@@ -24,7 +24,7 @@ const dispatch=useDispatch();
       localStorage.setItem('email',email)
       // Subscribe({email:email,subscription:"xxe 456/mjyt"},dispatch)
     } catch (error) {
-      console.log(error.code);
+      // console.log(error.code);
       alert(error);
     }
   };
