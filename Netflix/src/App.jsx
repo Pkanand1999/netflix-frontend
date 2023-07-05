@@ -15,6 +15,7 @@ function App() {
   return (
     <>
       <Routes>
+        <Route  path="/" element={<Netflix />} />
         <Route path="/*" element={<Error />} />
         <Route  path="/login" element={<Login />} />
         <Route  path="/signup" element={<Signup />} />
@@ -23,7 +24,6 @@ function App() {
         <Route  path="/movie" element={<Private><Movie /></Private>} />
         <Route  path="/tvshows" element={<Private><TvShows /></Private>} />
         <Route  path="/mylist" element={<Private><MyList /></Private>} />
-        <Route  path="/" element={<Netflix />} />
       </Routes>
 
     </>

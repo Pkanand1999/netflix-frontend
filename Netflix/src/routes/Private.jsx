@@ -3,9 +3,8 @@ import { useSelector } from "react-redux";
 
 const Private= ({ children }) => {
   let authToken=useSelector((e)=>{
-    return e.subscription
+    return e.subscription[0].subscription
   });
-  console.log(authToken);
   if (!authToken) {
     return <Navigate to="/payment" />;
   }

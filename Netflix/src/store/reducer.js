@@ -19,7 +19,7 @@ let initialState ={
         {heading:"First month free",basic:"✓",standard:"✓",premium:"✓"}
     ],
     price:0,
-    subscription:"",
+    subscription:[{email:"",subscription:""}],
 
 }
 
@@ -94,7 +94,7 @@ const reducer=(state=initialState,action) =>{
         case"SUBSCRIPTION":{
             return{
                 ...state,
-                subscription:action.payload.subscription,
+                subscription:[...action.payload],
             }
         }
         default:

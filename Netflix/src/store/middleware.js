@@ -152,9 +152,13 @@ export function Subscribe(item,dispatch){
     axios.post(`http://localhost:8080/api/netflix/v2/user`,{...item})
     .then((res)=>{
         console.log(res)
+        console.log(res)
 return res;
     })
     .then((res)=>{
+        console.log(res)
+        console.log(res)
+        console.log(res)
         dispatch({
             type:"SUBSCRIPTION",
             payload: res.data,

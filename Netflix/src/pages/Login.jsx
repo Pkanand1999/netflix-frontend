@@ -21,8 +21,8 @@ const dispatch=useDispatch();
       let user=await signInWithEmailAndPassword(firebaseAuth, email, password);
       localStorage.setItem('userId',user._tokenResponse.localId)
       userid(user._tokenResponse.localId,dispatch)
-      let email=localStorage.getItem('email')
-      Subscribe({email:email,subscription:"199"},dispatch)
+      localStorage.setItem('email',email)
+      Subscribe({email:email,subscription:"xxe 456/mjyt"},dispatch)
     } catch (error) {
       console.log(error.code);
       alert(error);

@@ -6,10 +6,13 @@ import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import { FaPlay } from "react-icons/fa";
 import { AiOutlineInfoCircle } from "react-icons/ai";
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
+import { Subscribe } from "../store/middleware";
+import { useDispatch } from "react-redux";
 
 export default function Netflix() {
   const navigate=useNavigate();
+  const dispatch=useDispatch();
   onAuthStateChanged(firebaseAuth, (currentUser) => {
     if (!currentUser) navigate("/login");
   });
@@ -18,6 +21,11 @@ export default function Netflix() {
         setIsScrolled(window.pageYOffset === 0 ? false : true);
         return () => (window.onscroll = null);
       };
+
+      useEffect(()=>{
+        let mail=localStorage.getItem('email')
+Subscribe({email:mail,subscription:"sdfgsag"},dispatch)
+      },[])
 
 
   return (
