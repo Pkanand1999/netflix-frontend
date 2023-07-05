@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import {MinusIcon,ArrowForwardIcon} from '@chakra-ui/icons'
 import { playthis } from '../store/middleware';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { checkwishlist } from '../store/middleware';
 
@@ -23,10 +23,9 @@ navigate("/player")
   }
 
 
-  let wishItem = JSON.parse(localStorage.getItem("wishlist")) || [];
+  
+
   function removewishlist(item){
-    let filtered = wishItem.filter(ele => !(ele.videoId === item.videoId));
-    localStorage.setItem("wishlist", JSON.stringify(filtered));
     delete item._id;
     let user=localStorage.getItem("userId");
     let data={...item,userId:user}

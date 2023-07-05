@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import {AddIcon,ArrowForwardIcon} from '@chakra-ui/icons'
 import { playthis } from '../store/middleware';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { checkwishlist } from '../store/middleware';
 
@@ -21,7 +21,10 @@ const handleMouseOver = () => {
 playthis(movieId,dispatch)
 navigate("/player")
   }
-  let wishItem = JSON.parse(localStorage.getItem("wishlist")) || [];
+  
+  let wishItem=useSelector((e)=>{
+    return e.wishlist
+  })
 
   function addwishlist(item){
 
@@ -33,8 +36,6 @@ navigate("/player")
       alert("already in wishlist");
     }
     if(isObjectPresent === false){
-      wishItem.push(item);
-    localStorage.setItem("wishlist", JSON.stringify(wishItem));
       delete item._id;
       let user=localStorage.getItem("userId");
       let data={...item,userId:user}
