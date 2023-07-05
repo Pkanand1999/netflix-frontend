@@ -26,6 +26,7 @@ import {
        let user= await createUserWithEmailAndPassword(firebaseAuth, email, password);
        localStorage.setItem('userId',user._tokenResponse.localId)
        userid(user._tokenResponse.localId,dispatch)
+       localStorage.setItem('email',email)
       } catch (error) {
         console.log(error);
         alert(error)

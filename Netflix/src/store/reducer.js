@@ -19,6 +19,7 @@ let initialState ={
         {heading:"First month free",basic:"✓",standard:"✓",premium:"✓"}
     ],
     price:0,
+    subscription:"",
 
 }
 
