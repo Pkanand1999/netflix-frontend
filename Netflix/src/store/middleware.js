@@ -121,6 +121,7 @@ export function checkwishlist(item,dispatch){
 return res;
     })
     .then((res)=>{
+        console.log("done")
         dispatch({
             type:"WATCH_WISHLIST",
             payload: res.data,
