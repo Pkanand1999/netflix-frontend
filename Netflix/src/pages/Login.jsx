@@ -97,7 +97,7 @@ const Container = styled.div`
           gap: 2rem;
           input {
             padding: 0.5rem 1rem;
-            width: 20rem;
+            
             color: black;
           }
           button {

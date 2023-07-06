@@ -7,7 +7,7 @@ export default function Header(props) {
   return (
     <StyledHeader className="flex a-center j-between">
       <div className="logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" alt="logo" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" alt="logo" style={{display:"flex"}}/>
       </div>
       <button onClick={() => navigate(props.login ? "/login" : "/signup")}>
         {props.login ? "Log In" : "Sign Up"}
