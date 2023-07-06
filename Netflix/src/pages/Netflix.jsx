@@ -46,10 +46,10 @@ export default function Netflix() {
             <FaPlay />
             Play
           </button>
-          <button className="flex j-center a-center">
+          {screen.width >760 &&<button className="flex j-center a-center">
             <AiOutlineInfoCircle />
             More Info
-          </button>
+          </button>}
         </div>
       </div>
     </div>

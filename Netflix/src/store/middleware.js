@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-
+const url=import.meta.env.VITE_BASE_URL
 
 export function hollywoodMovie(dispatch){
-    axios.get(`http://localhost:8080/api/netflix/v2/hollywood`)
+    axios.get(`${url}/hollywood`)
     .then((res)=>{
 return res;
     })
@@ -20,7 +20,7 @@ return res;
 }
 
 export function bollywoodMovie(dispatch){
-    axios.get(`http://localhost:8080/api/netflix/v2/bollywood`)
+    axios.get(`${url}/bollywood`)
     .then((res)=>{
 return res;
     })
@@ -37,7 +37,7 @@ return res;
 
 
 export function cartoonMovie(dispatch){
-    axios.get(`http://localhost:8080/api/netflix/v2/cartoon`)
+    axios.get(`${url}/cartoon`)
     .then((res)=>{
 return res;
     })
@@ -53,7 +53,7 @@ return res;
 }
 
 export function indianWeb(dispatch){
-    axios.get(`http://localhost:8080/api/netflix/v2/indianWebseries`)
+    axios.get(`${url}/indianWebseries`)
     .then((res)=>{
 return res;
     })
@@ -69,7 +69,7 @@ return res;
 }
 
 export function tvShows(dispatch){
-    axios.get(`http://localhost:8080/api/netflix/v2/tvshow`)
+    axios.get(`${url}/tvshow`)
     .then((res)=>{
 return res;
     })
@@ -86,7 +86,7 @@ return res;
 
 
 export function EnglishSeries(dispatch){
-    axios.get(`http://localhost:8080/api/netflix/v2/englishSeries`)
+    axios.get(`${url}/englishSeries`)
     .then((res)=>{
 return res;
     })
@@ -116,7 +116,7 @@ export function userid(id,dispatch){
 }
 
 export function checkwishlist(item,dispatch){
-    axios.post(`http://localhost:8080/api/netflix/v2/mywishlist`,{...item})
+    axios.post(`${url}/mywishlist`,{...item})
     .then((res)=>{
 return res;
     })
@@ -133,7 +133,7 @@ return res;
 }
 
 export function getlist(item,dispatch){
-    axios.post(`http://localhost:8080/api/netflix/v2/getlist`,{...item})
+    axios.post(`${url}/getlist`,{...item})
     .then((res)=>{
         console.log(res)
 return res;
@@ -150,7 +150,7 @@ return res;
 }
 
 export function Subscribe(item,dispatch){
-    axios.post(`http://localhost:8080/api/netflix/v2/user`,{...item})
+    axios.post(`${url}/user`,{...item})
     .then((res)=>{
         console.log(res)
         console.log(res)
@@ -172,7 +172,7 @@ return res;
 
 
 export function SubscribePlan(item,dispatch){
-    axios.post(`http://localhost:8080/api/netflix/v2/plan`,{...item})
+    axios.post(`${url}/plan`,{...item})
     .then((res)=>{
         console.log(res)
         console.log(res)

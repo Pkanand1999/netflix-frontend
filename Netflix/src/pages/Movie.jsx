@@ -49,7 +49,33 @@ export default function Movie() {
         infinite: true,
         centerPadding: "0px",
         slidesToShow: 6,
-        speed: 500
+        speed: 500,
+        responsive:[
+            {
+                breakpoint: 1080,
+                settings: {
+                  slidesToShow: 4,
+                  infinite: true,
+                  dots: true
+                }
+              },
+              {
+                breakpoint: 640,
+                settings: {
+                  slidesToShow: 2,
+                  infinite: true,
+                  dots: true
+                }
+              },
+              {
+                breakpoint: 400,
+                settings: {
+                  slidesToShow: 1,
+                  infinite: true,
+                  dots: true
+                }
+              }
+        ]
       };
 
     return (

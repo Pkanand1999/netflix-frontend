@@ -1,4 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel';
+import {Image} from '@chakra-ui/react'
 
 export default function Crousel({ image }) {
     return (
@@ -6,9 +7,9 @@ export default function Crousel({ image }) {
             {
                 image.map((imgx,i) => {
                     return (<Carousel.Item key={i}>
-                        <img
+                        <Image
                             className="d-block w-100"
-                            style={{ height: "100vh" }}
+                            height={["50vh","100vh"]}
                             src={imgx}
                         />
                     </Carousel.Item>)
