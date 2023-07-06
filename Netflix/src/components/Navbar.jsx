@@ -71,7 +71,6 @@ SubscribePlan({email:mail,subscription:"sdfgsag"},dispatch)
             <Image src="https://ih1.redbubble.net/image.618427277.3222/flat,800x800,075,f.u2.jpg" />
           </MenuButton >
           <MenuList width="1rem" textAlign="center" color='black'>
-            {/* {!premium && <MenuItem color='black' onClick={buyNow }>Subscribe</MenuItem>} */}
             {screen.width<1119 && <>
               <MenuItem><Link to="/"><Text display="flex" margin="auto" padding="0 1.5rem" _hover={{color:"wheat"}} cursor="pointer">Home</Text></Link></MenuItem>
               <MenuItem><Link to='/movie'><Text display="flex" margin="auto" padding="0 1.5rem" _hover={{color:"wheat"}} cursor="pointer">Movies</Text></Link></MenuItem>
