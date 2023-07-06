@@ -29,7 +29,7 @@ function signOff(){
 let key=import.meta.env.VITE_KEY_URL;
 let url=`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=${max}&q=${query}&key=${key}`
 
-function debounce(e){
+function debounce(event){
 
 }
 
