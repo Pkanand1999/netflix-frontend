@@ -4,7 +4,7 @@ export default function Otp({getpin}) {
     return (
         <>
         <Box w="100%" h="100vh" display="flex" justifyContent="center" alignItems="center">
-                <Box w="16%">
+                <Box w={["65%","50%","30%","20%","16%"]}>
                 <Text color="#ed6f74" fontSize="1.5rem" fontWeight="600">Enter Your PIN</Text>
             <Flex w="100%" justifyContent="space-between">
                 <PinInput type='numeric' size="lg" gap="1rem" focusBorderColor='#ed6f74' color="#ed6f74" onChange={(e)=>getpin(e)}>
