@@ -85,7 +85,10 @@ SubscribePlan({email:mail,subscription:"sdfgsag"},dispatch)
         </Box>
       </Box>
       <Box  width="14%" background="red" position="absolute" right="0" top="80%">
-
+        <Box>
+          <Box></Box>
+          <Box></Box>
+        </Box>
       </Box>
     </Box>
   )
