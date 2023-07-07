@@ -23,6 +23,10 @@ This is a solo project where I built a Netflix clone, an OTT platform, from scra
 
 The Netflix clone is deployed and hosted on AWS, ensuring high availability and scalability. You can access the deployed application by visiting [Netflix Clone](http://3.87.22.183:8080/).
 
+## Screenshot
+
+![Project Screenshot](./images/screenshot.png)
+
 ## Usage
 
 To use this project locally, follow these steps:
