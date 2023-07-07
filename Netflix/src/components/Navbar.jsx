@@ -108,7 +108,7 @@ setVideo([...json.items])
           Video.map((item,i)=>{
           return  <Box key={i} width="100%" display="flex" justifyContent="space-between" alignItems="center" border="1px solid white" borderRadius="4px" onClick={()=>playnow(item.id.videoId)}>
           <Box width="30%"><Image src={item.snippet.thumbnails.high.url}/></Box>
-          <Box width="66%" ><Text fontSize="1rem">{item.snippet.title}</Text></Box>
+          <Box width="66%" ><Text fontSize="1rem" color="white">{item.snippet.title}</Text></Box>
         </Box>
           })
         }
