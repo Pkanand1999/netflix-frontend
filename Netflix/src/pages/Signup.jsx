@@ -147,7 +147,7 @@ const Container = styled.div`
             
         }
         .getStart {
-          padding: 0.5rem 1rem;
+          padding: 0.5rem .8rem;
           background-color: #e50914;
           border: none;
           cursor: pointer;
