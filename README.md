@@ -13,10 +13,10 @@ This is a solo project where I built a Netflix clone, an OTT platform, from scra
 - Responsive design: The interface is responsive and adapts to different screen sizes.
 
   ## To Complete Process
-  -card number must have 16 digits
-  -mm/yyyy 6 digits
-  -cvv 3digits
-  -PIN 1234
+  -card number must have 16 digits.
+  -mm/yyyy 6 digits.
+  -cvv 3digits.
+  -PIN 1234.
 
 ## Technologies Used
 
