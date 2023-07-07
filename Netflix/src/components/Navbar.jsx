@@ -10,11 +10,12 @@ Input,
 } from '@chakra-ui/react'
 import { Search2Icon } from '@chakra-ui/icons'
 import {useState,useEffect} from "react"
-import{Link} from 'react-router-dom'
+import{Link,useNavigate} from 'react-router-dom'
 import { firebaseAuth } from "../utils/firebase-config";
 import { signOut } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { SubscribePlan } from '../store/middleware';
+import { playthis } from '../store/middleware';
 
 
 
@@ -23,6 +24,7 @@ const [search, setSearch] =useState(false);
 const [query, setQuery] =useState(false);
 const [Video, setVideo] =useState([]);
 const dispatch=useDispatch();
+const navigate=useNavigate();
 function signOff(){
   signOut(firebaseAuth)
   localStorage.removeItem('userId')
@@ -37,6 +39,12 @@ useEffect(()=>{
 SubscribePlan({email:mail,subscription:"sdfgsag"},dispatch)
 },[mail])
 
+
+function playnow(movieId){
+  playthis(movieId,dispatch)
+  navigate("/player")
+    }
+
 useEffect(()=>{
   let timer=setTimeout(async()=>{
 let res=await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${query}&key=${key}`)
@@ -46,6 +54,8 @@ setVideo([...json.items])
   },1000)
   return () => clearTimeout(timer);
 },[query])
+
+
 
   return (
     <Box display="flex" background={isScrolled ? "black" : "transparent"} position="fixed" width="100vw" zIndex="2" top="0" left="0" padding="1rem 2rem" alignItems="center" justifyContent="space-between">
@@ -93,16 +103,16 @@ setVideo([...json.items])
         </Menu>
         </Box>
       </Box>
-      <Box  width="15%" background="black" position="absolute" right="0" top="80%" height="60vh" overflow="scroll" css={{ '&::-webkit-scrollbar': { display: 'none' } }}>
+      {search && <Box  width={["70%","60%","40%","30%","25%","15%","15%"]} background="black" position="absolute" right="0" top="80%" height="40vh" overflow="scroll" css={{ '&::-webkit-scrollbar': { display: 'none' } }}>
         {
           Video.map((item,i)=>{
-          return  <Box key={i} width="100%" display="flex" justifyContent="space-between" alignItems="center">
+          return  <Box key={i} width="100%" display="flex" justifyContent="space-between" alignItems="center" border="1px solid white" borderRadius="4px" onClick={()=>playnow(item.id.videoId)}>
           <Box width="30%"><Image src={item.snippet.thumbnails.high.url}/></Box>
           <Box width="66%" ><Text fontSize="1rem">{item.snippet.title}</Text></Box>
         </Box>
           })
         }
-      </Box>
+      </Box>}
     </Box>
   )
 }
