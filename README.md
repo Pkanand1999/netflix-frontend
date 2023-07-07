@@ -25,7 +25,7 @@ The Netflix clone is deployed and hosted on AWS, ensuring high availability and 
 
 ## Screenshot
 
-![Project Screenshot](./images/zero.png)
+![Project Screenshot](../images/zero.png)
 
 ## Usage
 
