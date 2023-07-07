@@ -17,8 +17,11 @@ import { useDispatch } from "react-redux";
 import { SubscribePlan } from '../store/middleware';
 
 
+
 export default function Navbar({isScrolled}) {
 const [search, setSearch] =useState(false);
+const [query, setQuery] =useState(false);
+const [Video, setVideo] =useState([]);
 const dispatch=useDispatch();
 function signOff(){
   signOut(firebaseAuth)
@@ -27,16 +30,22 @@ function signOff(){
   localStorage.removeItem('subscribe')
 }
 let key=import.meta.env.VITE_KEY_URL;
-let url=`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=${max}&q=${query}&key=${key}`
 
-function debounce(event){
-
-}
 
 let mail=localStorage.getItem('email')
 useEffect(()=>{
 SubscribePlan({email:mail,subscription:"sdfgsag"},dispatch)
 },[mail])
+
+useEffect(()=>{
+  let timer=setTimeout(async()=>{
+let res=await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${query}&key=${key}`)
+let json=await res.json()
+console.log(json.items)
+setVideo([...json.items])
+  },1000)
+  return () => clearTimeout(timer);
+},[query])
 
   return (
     <Box display="flex" background={isScrolled ? "black" : "transparent"} position="fixed" width="100vw" zIndex="2" top="0" left="0" padding="1rem 2rem" alignItems="center" justifyContent="space-between">
@@ -54,7 +63,7 @@ SubscribePlan({email:mail,subscription:"sdfgsag"},dispatch)
         {search && <Input placeholder="Search" type="text" border="2px solid white" color="white"  
         focusBorderColor='red.400' 
         borderRadius="20px" 
-        onChange={(e)=>debounce(e)}
+        onChange={(e)=>setQuery(e.target.value)}
         />}
         </Box>
         <Box>
@@ -84,11 +93,15 @@ SubscribePlan({email:mail,subscription:"sdfgsag"},dispatch)
         </Menu>
         </Box>
       </Box>
-      <Box  width="14%" background="red" position="absolute" right="0" top="80%">
-        <Box>
-          <Box></Box>
-          <Box></Box>
+      <Box  width="15%" background="black" position="absolute" right="0" top="80%" height="60vh" overflow="scroll" css={{ '&::-webkit-scrollbar': { display: 'none' } }}>
+        {
+          Video.map((item,i)=>{
+          return  <Box key={i} width="100%" display="flex" justifyContent="space-between" alignItems="center">
+          <Box width="30%"><Image src={item.snippet.thumbnails.high.url}/></Box>
+          <Box width="66%" ><Text fontSize="1rem">{item.snippet.title}</Text></Box>
         </Box>
+          })
+        }
       </Box>
     </Box>
   )
