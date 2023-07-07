@@ -12,6 +12,12 @@ This is a solo project where I built a Netflix clone, an OTT platform, from scra
 - Personalized recommendations: The platform provides personalized movie and TV show recommendations based on the user's viewing history.
 - Responsive design: The interface is responsive and adapts to different screen sizes.
 
+  ## To Complete Process
+  -card number must have 16 digits.
+  -mm/yyyy 6 digits.
+  -cvv 3digits.
+  -PIN 1234.
+
 ## Technologies Used
 
 - Front-end: React, Redux, CSS
@@ -26,6 +32,16 @@ The Netflix clone is deployed and hosted on AWS, ensuring high availability and 
 ## Screenshot
 
 ![Project Screenshot](./images/zero.png)
+<<<<<<< HEAD
+=======
+![Project Screenshot](./images/one.png)
+![Project Screenshot](./images/two.png)
+![Project Screenshot](./images/three.png)
+![Project Screenshot](./images/four.png)
+![Project Screenshot](./images/five.png)
+![Project Screenshot](./images/seven.png)
+![Project Screenshot](./images/eight.png)
+>>>>>>> 6a2fb3ffaf3da0ab47b9b7a52d66d3de77f97f45
 
 ## Usage
 
