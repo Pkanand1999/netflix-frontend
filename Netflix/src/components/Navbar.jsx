@@ -21,7 +21,7 @@ import { playthis } from '../store/middleware';
 
 export default function Navbar({isScrolled}) {
 const [search, setSearch] =useState(false);
-const [query, setQuery] =useState(false);
+const [query, setQuery] =useState("iron man");
 const [Video, setVideo] =useState([]);
 const dispatch=useDispatch();
 const navigate=useNavigate();
@@ -47,10 +47,12 @@ function playnow(movieId){
 
 useEffect(()=>{
   let timer=setTimeout(async()=>{
-let res=await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${query}&key=${key}`)
-let json=await res.json()
-console.log(json.items)
-setVideo([...json.items])
+    // if(search==true){
+      let res=await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${query}&key=${key}`)
+      let json=await res.json()
+      console.log(json.items)
+      setVideo([...json.items])
+    // }
   },1000)
   return () => clearTimeout(timer);
 },[query])
