@@ -32,7 +32,7 @@ export default function PaymentCard({ cardDetail }) {
                     </div>
                     <form style={{ marginTop: "1rem", width: "100%" }} >
                         <h6 style={{ color: "#e4111b" }}>Enter your card number</h6>
-                        <Input type="number" placeholder="Enter Your 16 digit Card Number" pattern="[0-9]*"
+                        <Input type="number" placeholder="Enter Your 16 digits Card Number" pattern="[0-9]*"
                             minLength="16" maxLength="16" style={{ width: "100%", padding: "0.3rem 0", border: "2px solid #e4111b" }} focusBorderColor='#ed6f74'
                             onChange={(e) => setCardNumber(e.target.value)} />
                         <h6 style={{ marginTop: "0.4rem", color: "#e4111b" }}>Enter expire MM/YYYY</h6>
